@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Cabin:wght@400;600&family=Open+Sans&family=Roboto:wght@300;400&display=swap"
+    rel="stylesheet">
+<script src="https://kit.fontawesome.com/60726fbdb6.js" crossorigin="anonymous"></script>
+<style>
+    body {
+        background-color: rgb(39, 38, 38);
+        padding: 0px;
+        margin: 0px;
+        font-family: 'Baloo 2', cursive;
+        font-family: 'Cabin', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    #navbar {
+        display: flex;
+        background-color: rgb(103, 102, 102);
+    }
+
+    #searchresults {
+
+        margin: 25px auto;
+        width: 80%;
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 80px 50px;
+
+    }
+
+    #searchresults h3 {
+        color: white;
+    }
+
+    #navbar h1 {
+        color: red;
+        margin: 5px 400px 5px 100px;
+    }
+
+    #query{
+        padding: 5px 50px;
+        margin: 15px 0px;
+    }
+
+    #search {
+        margin: 15px 0px;
+
+    }
+    #sort{
+        background-color: white;
+        font-size: 18px;
+        padding: -50px 45px;
+        border: none;
+        margin: 15px -4px;
+    }
+    #sortname{
+        padding: 5px 50px;
+        margin: 15px 5px 15px 45px;
+    }
+</style>
+
+<body>
+    <div id="navbar">
+        <h1>youtube</h1>
+
+        <input type="text" id="query" placeholder="Search here">
+        <button id="search" onclick="getdata()"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input type="text" id="sortname" placeholder="sort by channalID">
+        <button id="sort" onclick="sort()">Go</button>
+    </div>
+
+    <div id="searchresults">
+
+    </div>
+</body>
+<script src="/youtube.js"></script>
+
+</html>

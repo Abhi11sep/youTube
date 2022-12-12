@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="conatainer">
+        <div id="main"></div>
+        <div id="remain"></div>
+    </div>
+</body>
+<script>
+
+let arr = JSON.parse(localStorage.getItem('clicked vdo'))||[];
+
+
+    let main = document.getElementById('main');
+
+    function display(arr) {
+
+        const vdoplay=document.createElement("iframe");
+       
+        // console.log(`https://www.youtube.com/embed?v=${arr.id}`);
+        vdoplay.width="60%";
+        vdoplay.height="500px";
+        vdoplay.allow="autoplay";
+        vdoplay.src=`https://www.youtube.com/embed/${arr.id}`;
+       
+
+
+       let div2=document.createElement("h1")
+        div2.innerText=arr.snippet;
+
+        main.append(vdoplay,div2);
+
+        }
+    display(arr);
+
+ 
+</script>
+
+</html>
