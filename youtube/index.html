@@ -14,7 +14,7 @@
     rel="stylesheet">
 <script src="https://kit.fontawesome.com/60726fbdb6.js" crossorigin="anonymous"></script>
 <style>
-    body {
+    /* body {
         background-color: rgb(39, 38, 38);
         padding: 0px;
         margin: 0px;
@@ -26,13 +26,30 @@
 
     #navbar {
         display: flex;
+        position: fixed;
+        width: 100%;
+        top: 0px;
         background-color: rgb(103, 102, 102);
     }
 
-    #searchresults {
+    #resultSection {
+        border: 2px solid red;
+        display: flex;
+        gap: 100px
+    }
 
-        margin: 25px auto;
-        width: 80%;
+    #sideMenu {
+        background-color: antiquewhite;
+        position: fixed;
+        top: 60px;
+        border: 5px solid greenyellow;
+        height: 100%;
+    }
+
+    #searchresults {
+        border: 5px solid rgb(78, 20, 225);
+        margin: 100px auto;
+        width: 100%;
         display: grid;
         grid-template-rows: auto;
         grid-template-columns: repeat(3, 1fr);
@@ -49,42 +66,296 @@
         margin: 5px 400px 5px 100px;
     }
 
-    #query{
+    #query {
         padding: 5px 50px;
         margin: 15px 0px;
+        border-radius: 15px 0px 0px 15px;
+        border: none;
+        font-size: 16px;
     }
 
     #search {
         margin: 15px 0px;
+        border-radius: 0px 15px 15px 0px;
+        border: none;
+        padding: 0px 15px;
+
 
     }
-    #sort{
+
+    #sort {
         background-color: white;
-        font-size: 18px;
+        font-size: 16px;
         padding: -50px 45px;
         border: none;
         margin: 15px -4px;
+        border: none;
+        border-radius: 0px 15px 15px 0px;
     }
-    #sortname{
+
+    #sortname {
         padding: 5px 50px;
         margin: 15px 5px 15px 45px;
+        border-radius: 15px 0px 0px 15px;
+        border: none;
+        font-size: 16px;
+
+    }
+
+    #vdo {
+        border-radius: 15px;
+        border: none;
+
+    } */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Roboto, sans-serif;
+    }
+
+    body {
+        background: #0f0f0f;
+        color: white;
+    }
+
+    /* ---------- NAVBAR ---------- */
+
+    #navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        background: #0f0f0f;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        border-bottom: 1px solid #2f2f2f;
+        z-index: 1000;
+    }
+
+    #navbar h1 {
+        color: red;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    #navbar div {
+        display: flex;
+        align-items: center;
+    }
+
+    #query {
+        width: 500px;
+        height: 42px;
+        background: #121212;
+        border: 1px solid #303030;
+        border-radius: 25px 0 0 25px;
+        color: white;
+        padding: 0 20px;
+        font-size: 16px;
+    }
+
+    #query:focus {
+        outline: none;
+        border-color: #3ea6ff;
+    }
+
+    #search {
+        width: 65px;
+        height: 42px;
+        border: none;
+        background: #222;
+        color: white;
+        border-radius: 0 25px 25px 0;
+        cursor: pointer;
+    }
+
+    #search:hover {
+        background: #333;
+    }
+
+    #sortname {
+        width: 220px;
+        height: 42px;
+        margin-left: 30px;
+        padding: 0 15px;
+        border-radius: 25px 0 0 25px;
+        border: none;
+        background: #222;
+        color: white;
+    }
+
+    #sort {
+        width: 70px;
+        height: 42px;
+        border: none;
+        border-radius: 0 25px 25px 0;
+        background: #3ea6ff;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* ---------- MAIN ---------- */
+
+    #resultSection {
+        display: flex;
+        margin-top: 65px;
+    }
+
+    /* ---------- SIDEBAR ---------- */
+
+    #sideMenu {
+        position: fixed;
+        top: 65px;
+        left: 0;
+        width: 230px;
+        height: calc(100vh - 65px);
+        background: #0f0f0f;
+        border-right: 1px solid #2f2f2f;
+        padding-top: 15px;
+    }
+
+    #sideMenu h1 {
+        font-size: 17px;
+        font-weight: 400;
+        padding: 14px 25px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    #sideMenu h1:hover {
+        background: #272727;
+    }
+
+    /* ---------- VIDEO GRID ---------- */
+
+    #searchresults {
+        margin-left: 250px;
+        padding: 25px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+    }
+
+    /* ---------- CARD ---------- */
+
+    #searchresults>div {
+        cursor: pointer;
+        transition: .25s;
+    }
+
+    #searchresults>div:hover {
+        transform: translateY(-6px);
+    }
+
+    #vdo {
+        width: 100%;
+        height: 210px;
+        border: none;
+        border-radius: 15px;
+    }
+
+    #searchresults img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+    }
+
+    #searchresults h3 {
+        margin-top: 12px;
+        font-size: 17px;
+        line-height: 1.4;
+        color: white;
+    }
+
+    .channel {
+        color: #aaa;
+        margin-top: 6px;
+        font-size: 14px;
+    }
+
+    .views {
+        color: #888;
+        font-size: 13px;
+    }
+
+    /* ---------- SCROLLBAR ---------- */
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #555;
+        border-radius: 20px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #111;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media(max-width:900px) {
+
+        #query {
+            width: 220px;
+        }
+
+        #sideMenu {
+            width: 80px;
+        }
+
+        #sideMenu h1 {
+            font-size: 12px;
+            text-align: center;
+            padding: 18px 5px;
+        }
+
+        #searchresults {
+            margin-left: 90px;
+        }
+
+        #sortname,
+        #sort {
+            display: none;
+        }
     }
 </style>
 
 <body>
     <div id="navbar">
         <h1>youtube</h1>
+        <div>
+            <input type="text" id="query" placeholder="Search here">
+            <button id="search" onclick="getdata()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text" id="sortname" placeholder="sort by channal ID">
+            <button id="sort" onclick="sort()">Go</button>
+        </div>
 
-        <input type="text" id="query" placeholder="Search here">
-        <button id="search" onclick="getdata()"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <input type="text" id="sortname" placeholder="sort by channalID">
-        <button id="sort" onclick="sort()">Go</button>
     </div>
 
-    <div id="searchresults">
+    <div id="resultSection">
+        <div id="sideMenu">
+            <h1>Home</h1>
+            <h1>History</h1>
+            <h1>Trending</h1>
+            <h1>Sports</h1>
+            <h1>News</h1>
+            <h1>Entertainment</h1>
+            <h1>You</h1>
 
+        </div>
+        <div id="searchresults">
+
+        </div>
     </div>
 </body>
-<script src="/youtube.js"></script>
+<script src="./youtube.js"></script>
 
 </html>

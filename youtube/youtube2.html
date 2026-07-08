@@ -7,41 +7,773 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Roboto, sans-serif;
+    }
+
+    /* ---------- NAVBAR ---------- */
+
+    #navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        background: #0f0f0f;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        border-bottom: 1px solid #2f2f2f;
+        z-index: 1000;
+    }
+
+
+    #navbar h1 {
+        color: red;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    #navbar div {
+        display: flex;
+        align-items: center;
+    }
+
+    #query {
+        width: 500px;
+        height: 42px;
+        background: #121212;
+        border: 1px solid #303030;
+        border-radius: 25px 0 0 25px;
+        color: white;
+        padding: 0 20px;
+        font-size: 16px;
+    }
+
+    #query:focus {
+        outline: none;
+        border-color: #3ea6ff;
+    }
+
+    #search {
+        width: 65px;
+        height: 42px;
+        border: none;
+        background: #222;
+        color: white;
+        border-radius: 0 25px 25px 0;
+        cursor: pointer;
+    }
+
+    #search:hover {
+        background: #333;
+    }
+
+    #sortname {
+        width: 220px;
+        height: 42px;
+        margin-left: 30px;
+        padding: 0 15px;
+        border-radius: 25px 0 0 25px;
+        border: none;
+        background: #222;
+        color: white;
+    }
+
+    #sort {
+        width: 70px;
+        height: 42px;
+        border: none;
+        border-radius: 0 25px 25px 0;
+        background: #3ea6ff;
+        color: white;
+        cursor: pointer;
+    }
+
+    body {
+        margin: 0;
+        background: #0f0f0f;
+        color: white;
+        overflow: hidden;
+    }
+
+    /* #container {
+        display: flex;
+        gap: 30px;
+        padding: 25px;
+        border: 2px solid red;
+    } */
+
+    #main {
+        flex: 3;
+    }
+
+    #remain {
+        flex: 1;
+    }
+
+    iframe {
+        width: 100%;
+        height: 550px;
+        border: none;
+        border-radius: 15px;
+    }
+
+    h2 {
+        margin: 20px 0;
+    }
+
+    .actions {
+        display: flex;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .actions button {
+        background: #272727;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .actions button:hover {
+        background: #444;
+    }
+
+    .channel {
+        background: #1c1c1c;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 20px 0;
+    }
+
+    .comments {
+        margin-top: 30px;
+    }
+
+    .comment {
+        background: #1d1d1d;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 12px 0;
+    }
+
+    .videoCard {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+    .videoCard:hover {
+        background: #222;
+        border-radius: 10px;
+    }
+
+    .videoCard img {
+        width: 180px;
+        height: 100px;
+        border-radius: 10px;
+    }
+
+    .videoCard h4 {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    .videoCard p {
+        color: #aaa;
+        font-size: 13px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Roboto, sans-serif;
+    }
+
+    #container {
+        display: grid;
+        grid-template-columns: 2.5fr 1fr;
+        gap: 25px;
+
+        height: calc(100vh - 70px);
+        margin-top: 70px;
+        padding: 20px;
+    }
+
+
+    /* LEFT */
+    #main {
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+
+    #main iframe {
+        width: 100%;
+        height: 550px;
+        border: none;
+        border-radius: 15px;
+    }
+
+    #main h2 {
+        margin: 18px 0;
+    }
+
+    /* RIGHT */
+    #remain {
+        overflow-y: auto;
+        padding-right: 8px;
+    }
+
+    /* one suggested video */
+
+    .videoCard {
+        display: flex;
+        gap: 12px;
+        cursor: pointer;
+        transition: .25s;
+        padding: 8px;
+        border-radius: 12px;
+    }
+
+    .videoCard:hover {
+        background: #272727;
+    }
+
+    .videoCard img {
+        width: 170px;
+        height: 95px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .videoInfo {
+        flex: 1;
+    }
+
+    .videoInfo h4 {
+        font-size: 15px;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+
+    .videoInfo p {
+        color: #aaa;
+        font-size: 13px;
+    }
+
+    #remain::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    #remain::-webkit-scrollbar-thumb {
+        background: #444;
+    }
+
+    #main::-webkit-scrollbar,
+    #remain::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    #main::-webkit-scrollbar-thumb,
+    #remain::-webkit-scrollbar-thumb {
+        background: #555;
+        border-radius: 20px;
+    }
+
+    #main::-webkit-scrollbar-track,
+    #remain::-webkit-scrollbar-track {
+        background: #111;
+    }
+
+    .commentBox {
+        display: flex;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .commentBox input {
+
+        flex: 1;
+        padding: 12px;
+
+        border: none;
+
+        border-radius: 25px;
+
+        background: #272727;
+
+        color: white;
+
+        font-size: 15px;
+    }
+
+    .commentBox button {
+
+        padding: 12px 25px;
+
+        border: none;
+
+        border-radius: 25px;
+
+        background: #3ea6ff;
+
+        color: white;
+
+        cursor: pointer;
+    }
+
+    .comment {
+
+        background: #222;
+
+        padding: 15px;
+
+        border-radius: 10px;
+
+        margin: 12px 0;
+
+        font-size: 15px;
+    }
+
+    .active {
+
+        background: #3ea6ff !important;
+
+        color: white;
+    }
+
+    .channel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background: #1d1d1d;
+
+        padding: 20px;
+
+        border-radius: 15px;
+
+        margin: 25px 0;
+    }
+
+    .channelLeft {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .avatar {
+        width: 55px;
+        height: 55px;
+
+        border-radius: 50%;
+
+        background: #ff3d00;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        font-size: 22px;
+
+        font-weight: bold;
+    }
+
+    #subscribeBtn {
+
+        background: #ffffff;
+
+        color: #000;
+
+        border: none;
+
+        padding: 12px 28px;
+
+        border-radius: 25px;
+
+        cursor: pointer;
+
+        font-weight: bold;
+
+        font-size: 15px;
+
+        transition: .3s;
+    }
+
+    #subscribeBtn:hover {
+
+        background: #ddd;
+    }
+
+    .subscribed {
+
+        background: #272727 !important;
+
+        color: white !important;
+    }
+</style>
 
 <body>
-    <div id="conatainer">
+    <div id="navbar">
+        <h1>youtube</h1>
+        <div>
+            <input type="text" id="query" placeholder="Search here">
+            <button id="search" onclick="getdata()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text" id="sortname" placeholder="sort by channal ID">
+            <button id="sort" onclick="sort()">Go</button>
+        </div>
+
+    </div>
+    <div id="container">
         <div id="main"></div>
         <div id="remain"></div>
     </div>
 </body>
 <script>
 
-let arr = JSON.parse(localStorage.getItem('clicked vdo'))||[];
+    const video = JSON.parse(localStorage.getItem("clicked vdo"));
+    const allVideos = JSON.parse(localStorage.getItem("all vdo")) || [];
+
+    const main = document.getElementById("main");
+    const remain = document.getElementById("remain");
+
+    function display(video) {
+
+        main.innerHTML = "";
+
+        main.innerHTML = `
+
+    <iframe
+    src="https://www.youtube.com/embed/${video.id}"
+    allowfullscreen></iframe>
+
+    <h2>${video.snippet}</h2>
+
+   <div class="actions">
+
+<button id="likeBtn">
+👍 Like
+</button>
+
+<button id="dislikeBtn">
+👎 Dislike
+</button>
+
+<button>
+🔗 Share
+</button>
+
+<button>
+💾 Save
+</button>
+
+</div>
+
+    <div class="channel">
+
+    <div class="channelLeft">
+        <div class="avatar">
+            ${video.title.charAt(0)}
+        </div>
+
+        <div>
+            <h3>${video.title}</h3>
+            <p>1.2M Subscribers</p>
+        </div>
+    </div>
+
+    <button id="subscribeBtn">Subscribe</button>
+
+</div>
+
+    <div class="comments">
+
+    <h3>Comments</h3>
+
+    <div class="commentBox">
+
+        <input
+            type="text"
+            id="commentInput"
+            placeholder="Add a comment">
+
+        <button id="commentBtn">
+            Comment
+        </button>
+
+    </div>
+
+    <div id="commentList"></div>
+
+</div>
+
+    `;
+    }
 
 
-    let main = document.getElementById('main');
+    function showSidebar() {
 
-    function display(arr) {
+        remain.innerHTML = "";
 
-        const vdoplay=document.createElement("iframe");
-       
-        // console.log(`https://www.youtube.com/embed?v=${arr.id}`);
-        vdoplay.width="60%";
-        vdoplay.height="500px";
-        vdoplay.allow="autoplay";
-        vdoplay.src=`https://www.youtube.com/embed/${arr.id}`;
-       
+        allVideos.forEach((el) => {
 
+            // Don't show the currently playing video
+            if (el.id.videoId === video.id) return;
 
-       let div2=document.createElement("h1")
-        div2.innerText=arr.snippet;
+            let card = document.createElement("div");
+            card.className = "videoCard";
 
-        main.append(vdoplay,div2);
+            card.innerHTML = `
+            <img src="${el.snippet.thumbnails.medium.url}">
+
+            <div class="videoInfo">
+                <h4>${el.snippet.title}</h4>
+
+                <p>${el.snippet.channelTitle}</p>
+
+                <p>2.1M views • 5 days ago</p>
+            </div>
+        `;
+
+            card.onclick = () => {
+
+                localStorage.setItem(
+                    "clicked vdo",
+                    JSON.stringify({
+                        id: el.id.videoId,
+                        snippet: el.snippet
+                    })
+                );
+
+                location.reload();
+            };
+
+            remain.append(card);
+        });
+
+    }
+    function addComment() {
+
+        const input = document.getElementById("commentInput");
+
+        if (input.value.trim() == "") return;
+
+        let comments =
+            JSON.parse(localStorage.getItem(video.id + "comments"))
+            || [];
+
+        comments.push(input.value);
+
+        localStorage.setItem(
+            video.id + "comments",
+            JSON.stringify(comments)
+        );
+
+        input.value = "";
+
+        loadComments();
+
+    }
+    function loadComments() {
+
+        const list = document.getElementById("commentList");
+
+        list.innerHTML = "";
+
+        let comments =
+            JSON.parse(localStorage.getItem(video.id + "comments"))
+            || [];
+
+        comments.reverse().forEach(comment => {
+
+            let div = document.createElement("div");
+
+            div.className = "comment";
+
+            div.innerHTML = `
+
+            👤 <b>You</b>
+
+            <br><br>
+
+            ${comment}
+
+        `;
+
+            list.append(div);
+
+        });
+
+    }
+    function likeSystem() {
+
+        const like = document.getElementById("likeBtn");
+
+        const dislike = document.getElementById("dislikeBtn");
+
+        let state =
+            JSON.parse(localStorage.getItem(video.id + "like"))
+            || "";
+
+        if (state == "like")
+            like.classList.add("active");
+
+        if (state == "dislike")
+            dislike.classList.add("active");
+
+        like.onclick = function () {
+
+            like.classList.toggle("active");
+
+            dislike.classList.remove("active");
+
+            if (like.classList.contains("active")) {
+
+                localStorage.setItem(
+                    video.id + "like",
+                    JSON.stringify("like")
+                );
+
+            } else {
+
+                localStorage.removeItem(video.id + "like");
+
+            }
 
         }
-    display(arr);
 
- 
+        dislike.onclick = function () {
+
+            dislike.classList.toggle("active");
+
+            like.classList.remove("active");
+
+            if (dislike.classList.contains("active")) {
+
+                localStorage.setItem(
+                    video.id + "like",
+                    JSON.stringify("dislike")
+                );
+
+            } else {
+
+                localStorage.removeItem(video.id + "like");
+
+            }
+
+        }
+
+    }
+    // function subscribeSystem() {
+
+    //     const btn = document.getElementById("subscribeBtn");
+
+    //     const key = "subscribe-" + video.title;
+
+
+    //     let subscribed =
+    //         JSON.parse(localStorage.getItem(key));
+
+    //     if (subscribed) {
+
+    //         btn.innerText = "✓ Subscribed";
+
+    //         btn.classList.add("subscribed");
+
+    //     }
+
+    //     btn.onclick = function () {
+
+    //         subscribed = !subscribed;
+    //         console.log(key)
+
+    //         localStorage.setItem(key, JSON.stringify(subscribed));
+
+    //         if (subscribed) {
+
+    //             btn.innerText = "✓ Subscribed";
+
+    //             btn.classList.add("subscribed");
+
+    //         }
+    //         else {
+
+    //             btn.innerText = "Subscribe";
+
+    //             btn.classList.remove("subscribed");
+
+    //         }
+
+    //     }
+
+    // }
+
+    showSidebar();
+
+    display(video);
+
+    function subscribeSystem() {
+
+        const btn = document.getElementById("subscribeBtn");
+
+        if (!btn) return; // Button not found
+
+        const key = "subscribe_" + video.title;
+
+        let subscribed = JSON.parse(localStorage.getItem(key)) || false;
+
+        updateButton();
+
+        btn.onclick = function () {
+            console.log("subs", key)
+
+            subscribed = !subscribed;
+
+            localStorage.setItem(key, JSON.stringify(subscribed));
+
+            updateButton();
+        }
+
+        function updateButton() {
+
+            if (subscribed) {
+
+                btn.innerText = "✓ Subscribed";
+                btn.style.background = "#272727";
+                btn.style.color = "white";
+
+            } else {
+
+                btn.innerText = "Subscribe";
+                btn.style.background = "red";
+                btn.style.color = "white";
+
+            }
+
+        }
+
+    }
+    likeSystem();
+    loadComments();
+
+    document
+        .getElementById("commentBtn")
+        .addEventListener("click", addComment);
+
+
 </script>
 
 </html>
