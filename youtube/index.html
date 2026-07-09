@@ -14,99 +14,6 @@
     rel="stylesheet">
 <script src="https://kit.fontawesome.com/60726fbdb6.js" crossorigin="anonymous"></script>
 <style>
-    /* body {
-        background-color: rgb(39, 38, 38);
-        padding: 0px;
-        margin: 0px;
-        font-family: 'Baloo 2', cursive;
-        font-family: 'Cabin', sans-serif;
-        font-family: 'Open Sans', sans-serif;
-        font-family: 'Roboto', sans-serif;
-    }
-
-    #navbar {
-        display: flex;
-        position: fixed;
-        width: 100%;
-        top: 0px;
-        background-color: rgb(103, 102, 102);
-    }
-
-    #resultSection {
-        border: 2px solid red;
-        display: flex;
-        gap: 100px
-    }
-
-    #sideMenu {
-        background-color: antiquewhite;
-        position: fixed;
-        top: 60px;
-        border: 5px solid greenyellow;
-        height: 100%;
-    }
-
-    #searchresults {
-        border: 5px solid rgb(78, 20, 225);
-        margin: 100px auto;
-        width: 100%;
-        display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 80px 50px;
-
-    }
-
-    #searchresults h3 {
-        color: white;
-    }
-
-    #navbar h1 {
-        color: red;
-        margin: 5px 400px 5px 100px;
-    }
-
-    #query {
-        padding: 5px 50px;
-        margin: 15px 0px;
-        border-radius: 15px 0px 0px 15px;
-        border: none;
-        font-size: 16px;
-    }
-
-    #search {
-        margin: 15px 0px;
-        border-radius: 0px 15px 15px 0px;
-        border: none;
-        padding: 0px 15px;
-
-
-    }
-
-    #sort {
-        background-color: white;
-        font-size: 16px;
-        padding: -50px 45px;
-        border: none;
-        margin: 15px -4px;
-        border: none;
-        border-radius: 0px 15px 15px 0px;
-    }
-
-    #sortname {
-        padding: 5px 50px;
-        margin: 15px 5px 15px 45px;
-        border-radius: 15px 0px 0px 15px;
-        border: none;
-        font-size: 16px;
-
-    }
-
-    #vdo {
-        border-radius: 15px;
-        border: none;
-
-    } */
     * {
         margin: 0;
         padding: 0;
@@ -122,19 +29,29 @@
     /* ---------- NAVBAR ---------- */
 
     #navbar {
+
         position: fixed;
         top: 0;
         left: 0;
+
         width: 100%;
-        height: 65px;
+        height: 70px;
+
         background: #0f0f0f;
+
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        padding: 0 30px;
-        border-bottom: 1px solid #2f2f2f;
+        align-items: center;
+
+        padding: 0 25px;
+
+        box-sizing: border-box;
+
         z-index: 1000;
+
+        border-bottom: 1px solid #2a2a2a;
     }
+
 
     #navbar h1 {
         color: red;
@@ -142,39 +59,92 @@
         cursor: pointer;
     }
 
+    #navbar img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+    }
+
     #navbar div {
         display: flex;
         align-items: center;
+        gap: 10px;
+    }
+
+    .searchContainer {
+
+        flex: 1;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        margin: 0 40px;
+    }
+
+    .searchSection {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+        gap: 25px;
     }
 
     #query {
-        width: 500px;
+
+        width: 100%;
+        max-width: 550px;
+
         height: 42px;
+
+        padding: 0 18px;
+
         background: #121212;
-        border: 1px solid #303030;
-        border-radius: 25px 0 0 25px;
+
         color: white;
-        padding: 0 20px;
-        font-size: 16px;
+
+        border: 1px solid #303030;
+
+        border-radius: 22px 0 0 22px;
+
+        outline: none;
+
+        font-size: 15px;
     }
 
     #query:focus {
+        background: #121212;
+        color: white;
         outline: none;
-        border-color: #3ea6ff;
     }
 
     #search {
+
+        margin-left: -10px;
         width: 65px;
+
         height: 42px;
-        border: none;
+
         background: #222;
+
         color: white;
-        border-radius: 0 25px 25px 0;
+
+        border: 1px solid #303030;
+
+        border-left: none;
+
+        border-radius: 0 22px 22px 0;
+
         cursor: pointer;
+
+        transition: .25s;
     }
 
     #search:hover {
-        background: #333;
+
+        background: #323232;
     }
 
     #sortname {
@@ -198,6 +168,26 @@
         cursor: pointer;
     }
 
+    .logo {
+
+        display: flex;
+        align-items: center;
+        z-index: 100;
+        gap: 10px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .logo h1 {
+        color: white;
+
+        font-size: 28px;
+
+        margin: 0;
+
+        font-weight: 600;
+    }
+
     /* ---------- MAIN ---------- */
 
     #resultSection {
@@ -209,13 +199,21 @@
 
     #sideMenu {
         position: fixed;
-        top: 65px;
+        top: 70px;
         left: 0;
-        width: 230px;
-        height: calc(100vh - 65px);
+
+        width: 240px;
+        height: calc(100vh - 70px);
+
         background: #0f0f0f;
-        border-right: 1px solid #2f2f2f;
-        padding-top: 15px;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 12px;
+        box-sizing: border-box;
+
+        overflow-y: auto;
     }
 
     #sideMenu h1 {
@@ -299,6 +297,270 @@
         background: #111;
     }
 
+
+    /* ---------- User SIGNIN ---------- */
+
+
+    #userSection {
+
+        flex-shrink: 0;
+    }
+
+    #loginBtn {
+
+        padding: 10px 20px;
+
+        border: 1px solid #3ea6ff;
+
+        background: transparent;
+
+        color: #3ea6ff;
+
+        border-radius: 25px;
+
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition: .3s;
+    }
+
+    #loginBtn:hover {
+
+        background: #263850;
+    }
+
+    #popup {
+
+        position: fixed;
+        inset: 0;
+
+        display: none;
+
+        justify-content: center;
+        align-items: center;
+
+        background: rgba(0, 0, 0, .75);
+
+        backdrop-filter: blur(6px);
+
+        z-index: 9999;
+    }
+
+    #popupContent {
+
+        width: 380px;
+
+        background: #181818;
+
+        border: 1px solid #333;
+
+        border-radius: 20px;
+
+        padding: 35px;
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, .5);
+
+        animation: popup .35s ease;
+    }
+
+
+    #popupContent h2 {
+
+        text-align: center;
+
+        margin-bottom: 25px;
+
+        font-size: 28px;
+    }
+
+    #popupContent input {
+
+        width: 100%;
+
+        margin: 10px 0;
+
+        padding: 14px 18px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        background: #2a2a2a;
+
+        color: white;
+
+        font-size: 15px;
+    }
+
+    #popupContent input:focus {
+
+        outline: 2px solid #ff0000;
+    }
+
+    #signupBtn {
+
+        width: 100%;
+
+        margin-top: 20px;
+
+        padding: 14px;
+
+        background: #ff0000;
+
+        color: white;
+
+        border: none;
+
+        border-radius: 12px;
+
+        cursor: pointer;
+
+        font-size: 16px;
+
+        font-weight: bold;
+
+        transition: .3s;
+    }
+
+    #signupBtn:hover {
+
+        background: #d60000;
+    }
+
+    #closeBtn {
+
+        position: absolute;
+
+        top: 18px;
+
+        right: 20px;
+
+        background: none;
+
+        border: none;
+
+        color: white;
+
+        font-size: 22px;
+
+        cursor: pointer;
+    }
+
+    /*-------------USER NAME------------*/
+
+    #profile {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        cursor: pointer;
+    }
+
+    #avatar {
+
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 50%;
+
+        background: #ff0000;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        font-size: 18px;
+
+        font-weight: bold;
+
+        color: white;
+    }
+
+    #profile span {
+
+        font-size: 15px;
+
+        font-weight: 500;
+    }
+
+    /*-------side bar ------------*/
+    .menuItem {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 12px 18px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .menuItem:hover {
+        background: #272727;
+    }
+
+    .menuItem svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+    }
+
+    .menuItem span {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    #menuTop {
+
+        flex: 1;
+
+        overflow-y: auto;
+
+        padding: 12px;
+    }
+
+    #logoutSection {
+
+        padding: 12px;
+
+        border-top: 1px solid #3f3f3f;
+
+        flex-shrink: 0;
+    }
+
+    /*-------------LOGOUT------------*/
+
+    #logoutSection {
+        margin-top: auto;
+    }
+
+    .divider {
+        border-top: 1px solid #3f3f3f;
+        margin: 12px 0;
+    }
+
+    .logout {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logout:hover {
+
+        background: #3b1d1d;
+    }
+
+    #loginBtn svg {
+        display: none;
+    }
+
+
     /* ---------- MOBILE ---------- */
 
     @media(max-width:900px) {
@@ -307,8 +569,12 @@
             width: 220px;
         }
 
+
         #sideMenu {
-            width: 80px;
+
+            width: 70px;
+            padding: 10px 6px;
+            overflow-x: hidden;
         }
 
         #sideMenu h1 {
@@ -325,30 +591,414 @@
         #sort {
             display: none;
         }
+
+        .menuItem {
+
+            justify-content: center;
+            padding: 14px 0;
+            gap: 0;
+        }
+
+        .menuItem span {
+
+            display: none;
+        }
+
+        .menuItem svg {
+
+            width: 24px;
+            height: 24px;
+        }
+
+        .logout {
+
+            justify-content: center;
+        }
+
+        .divider {
+
+            width: 100%;
+        }
+
+    }
+
+    /* Tablets & Small Laptops */
+    @media (max-width:750px) {
+
+        /* Hide only YouTube text */
+        .logo h1 {
+            display: none;
+        }
+
+        /* Make logo smaller */
+        .logo svg {
+            width: 32px;
+            height: 24px;
+        }
+
+        /* Reduce navbar padding */
+        #navbar {
+            padding: 0 12px;
+        }
+
+        /* Search section takes remaining space */
+        .searchContainer {
+            flex: 1;
+            margin: 0 15px;
+        }
+
+        /* Responsive search bar */
+        #query {
+            width: 100%;
+            max-width: 350px;
+            font-size: 14px;
+        }
+
+        /* Smaller search button */
+        #search {
+            width: 50px;
+        }
+
+        /* Smaller login button */
+        #loginBtn {
+            padding: 8px 14px;
+            font-size: 13px;
+        }
+
+        /* Smaller profile (after login) */
+        #profile span {
+            font-size: 13px;
+        }
+
+        #avatar {
+            width: 36px;
+            height: 36px;
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width:400px) {
+
+        /* Hide YouTube text */
+        .logo {
+            display: none;
+        }
+
+        /* Hide Welcome text */
+        .welcomeText {
+            display: none;
+        }
+
+        /* Hide Sign In button */
+        #loginBtn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loginBtn svg {
+            display: block;
+        }
+
+        /* Show only avatar */
+        #avatar {
+
+            width: 38px;
+            height: 38px;
+
+            font-size: 16px;
+        }
+
+        /* Keep profile centered */
+        #profile {
+            gap: 0;
+        }
+
+        /* Search occupies maximum space */
+        .searchContainer {
+            margin: 0 10px;
+        }
+
+        #query {
+            width: 100%;
+        }
+
+        #guestProfile {
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        #guestProfile:hover {
+
+            background: #272727;
+        }
+
+        .loginIcon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loginText {
+            display: none;
+        }
+
     }
 </style>
 
 <body>
     <div id="navbar">
-        <h1>youtube</h1>
-        <div>
-            <input type="text" id="query" placeholder="Search here">
-            <button id="search" onclick="getdata()"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input type="text" id="sortname" placeholder="sort by channal ID">
-            <button id="sort" onclick="sort()">Go</button>
+        <div class="logo">
+            <svg width="38" height="27" viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg">
+                <rect width="90" height="60" rx="14" fill="#FF0000" />
+                <polygon points="36,18 36,42 58,30" fill="white" />
+            </svg>
+
+            <h1>YouTube</h1>
+        </div>
+
+        <div class="searchContainer">
+            <input type="text" id="query" placeholder="Search here...">
+            <button id="search" onclick="getdata()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <div id="userSection">
+            <button id="loginBtn">Sign In / Sign Up</button>
+        </div>
+
+
+    </div>
+
+    <div id="popup">
+
+        <div id="popupContent">
+
+            <h2>Create Account</h2>
+
+            <form id="signupForm">
+                <input type="text" id="username" placeholder="Enter Name" required>
+                <input type="password" id="password" placeholder="Enter Password" required>
+                <button id="signupBtn">
+                    Sign Up
+                </button>
+            </form>
+
+            <button id="closeBtn">
+                ✖
+            </button>
+
         </div>
 
     </div>
 
     <div id="resultSection">
         <div id="sideMenu">
-            <h1>Home</h1>
-            <h1>History</h1>
-            <h1>Trending</h1>
-            <h1>Sports</h1>
-            <h1>News</h1>
-            <h1>Entertainment</h1>
-            <h1>You</h1>
+            <div id="menuTop">
+                <div class="menuItem" onclick="data()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3 10.5L12 3L21 10.5V20C21 20.55 20.55 21 20 21H15V14H9V21H4C3.45 21 3 20.55 3 20V10.5Z"
+                            stroke="white" stroke-width="2" stroke-linejoin="round" />
+                    </svg>
+                    <span>Home</span>
+                </div>
+
+                <div class="menuItem" onclick="history()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M3 12A9 9 0 1 1 6 18" stroke="white" stroke-width="2" stroke-linecap="round" />
+
+                        <path d="M3 18V13H8" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+
+                        <path d="M12 7V12L15 14" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+
+                    </svg>
+                    <span>History</span>
+                </div>
+
+                <div class="menuItem" onclick="categorycaller('trending')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <path
+                            d="M13 3C15 6 18 8 18 12C18 15.3 15.3 18 12 18C8.7 18 6 15.3 6 12C6 9 8 7 10 5C10 8 12 9 13 3Z"
+                            stroke="white" stroke-width="2" stroke-linejoin="round" />
+
+                    </svg>
+                    <span>Trending</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('sports')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <circle cx="12" cy="12" r="9" stroke="white" stroke-width="2" />
+
+                        <path d="M12 7L15 9L14 13L10 13L9 9L12 7Z" stroke="white" stroke-width="1.5" />
+
+                    </svg>
+                    <span>Sports</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('entertainment')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <rect x="4" y="6" width="16" height="12" rx="2" stroke="white" stroke-width="2" />
+
+                        <polygon points="10,9 16,12 10,15" fill="white" />
+
+                    </svg>
+                    <span>Entertainment</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('news')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <rect x="4" y="5" width="16" height="14" rx="2" stroke="white" stroke-width="2" />
+
+                        <line x1="8" y1="9" x2="17" y2="9" stroke="white" stroke-width="2" />
+
+                        <line x1="8" y1="13" x2="17" y2="13" stroke="white" stroke-width="2" />
+
+                        <line x1="8" y1="17" x2="14" y2="17" stroke="white" stroke-width="2" />
+
+                    </svg>
+                    <span>News</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('education')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M3 7L12 3L21 7L12 11L3 7Z" stroke="white" stroke-width="2" />
+
+                        <path d="M6 9V15C6 17 9 19 12 19C15 19 18 17 18 15V9" stroke="white" stroke-width="2" />
+
+                    </svg>
+                    <span>Education</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('travelling')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M3 12L21 12M12 3L15 12L12 21L9 12Z" stroke="white" stroke-width="2"
+                            stroke-linejoin="round" />
+
+                    </svg>
+                    <span>Travelling</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('technology')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <rect x="4" y="5" width="16" height="11" rx="2" stroke="white" stroke-width="2" />
+
+                        <line x1="9" y1="20" x2="15" y2="20" stroke="white" stroke-width="2" />
+
+                        <line x1="12" y1="16" x2="12" y2="20" stroke="white" stroke-width="2" />
+
+                    </svg>
+                    <span>Technology</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('fitness')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <line x1="6" y1="9" x2="18" y2="15" stroke="white" stroke-width="2" />
+                        <line x1="6" y1="15" x2="18" y2="9" stroke="white" stroke-width="2" />
+                        <rect x="3" y="8" width="2" height="8" fill="white" />
+                        <rect x="19" y="8" width="2" height="8" fill="white" />
+                    </svg>
+                    <span>Fitness</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('podcasts')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="3" stroke="white" stroke-width="2" />
+                        <path d="M12 11V20" stroke="white" stroke-width="2" stroke-linecap="round" />
+                        <path d="M7 12C7 9.5 9 8 12 8C15 8 17 9.5 17 12" stroke="white" stroke-width="2" />
+                        <path d="M5 12C5 8.5 8 6 12 6C16 6 19 8.5 19 12" stroke="white" stroke-width="2" />
+                    </svg>
+                    <span>Podcasts</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('comedy')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="white" stroke-width="2" />
+                        <circle cx="9" cy="10" r="1" fill="white" />
+                        <circle cx="15" cy="10" r="1" fill="white" />
+                        <path d="M8 14C9 16 11 17 12 17C13 17 15 16 16 14" stroke="white" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
+                    <span>Comedy</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('vlogs')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect x="4" y="6" width="12" height="12" rx="2" stroke="white" stroke-width="2" />
+                        <path d="M16 10L20 8V16L16 14V10Z" stroke="white" stroke-width="2" stroke-linejoin="round" />
+                    </svg>
+                    <span>Vlogs</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('finance')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="white" stroke-width="2" />
+                        <path d="M12 7V17" stroke="white" stroke-width="2" stroke-linecap="round" />
+                        <path
+                            d="M9.5 9.5C9.5 8.7 10.4 8 12 8C13.6 8 14.5 8.7 14.5 9.5C14.5 10.3 13.8 10.7 12 11C10.2 11.3 9.5 11.8 9.5 12.8C9.5 13.8 10.5 14.5 12 14.5C13.5 14.5 14.5 13.8 14.5 13"
+                            stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <span>Finance</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('gaming')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <rect x="4" y="8" width="16" height="8" rx="4" stroke="white" stroke-width="2" />
+
+                        <line x1="8" y1="12" x2="12" y2="12" stroke="white" stroke-width="2" />
+                        <line x1="10" y1="10" x2="10" y2="14" stroke="white" stroke-width="2" />
+
+                        <circle cx="16.5" cy="11" r="1" fill="white" />
+                        <circle cx="18.5" cy="13" r="1" fill="white" />
+
+                    </svg>
+                    <span>Gaming</span>
+                </div>
+                <div class="menuItem" onclick="categorycaller('music')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M9 17V7L18 5V15" stroke="white" stroke-width="2" stroke-linecap="round" />
+
+                        <circle cx="9" cy="17" r="2" stroke="white" stroke-width="2" />
+                        <circle cx="18" cy="15" r="2" stroke="white" stroke-width="2" />
+
+                    </svg>
+                    <span>Music</span>
+                </div>
+
+            </div>
+
+            <div id="logoutSection">
+
+
+                <div class="menuItem logout">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <circle cx="12" cy="8" r="3" stroke="red" stroke-width="2" />
+
+                        <path d="M5 20C5 16.5 8 14.5 12 14.5C16 14.5 19 16.5 19 20" stroke="red" stroke-width="2"
+                            stroke-linecap="round" />
+
+                    </svg>
+                    <span>Logout</span>
+                </div>
+            </div>
+
 
         </div>
         <div id="searchresults">

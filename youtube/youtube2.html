@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/60726fbdb6.js" crossorigin="anonymous"></script>
 </head>
 <style>
     * {
@@ -17,19 +18,29 @@
 
     /* ---------- NAVBAR ---------- */
 
+
     #navbar {
+
         position: fixed;
         top: 0;
         left: 0;
+
         width: 100%;
-        height: 65px;
+        height: 70px;
+
         background: #0f0f0f;
+
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        padding: 0 30px;
-        border-bottom: 1px solid #2f2f2f;
+        align-items: center;
+
+        padding: 0 25px;
+
+        box-sizing: border-box;
+
         z-index: 1000;
+
+        border-bottom: 1px solid #2a2a2a;
     }
 
 
@@ -39,39 +50,91 @@
         cursor: pointer;
     }
 
+    #navbar img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+    }
+
     #navbar div {
         display: flex;
         align-items: center;
+        gap: 10px;
+    }
+
+    .searchContainer {
+
+        flex: 1;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        margin: 0 40px;
+    }
+
+    .searchSection {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        justify-content: center;
+        gap: 25px;
     }
 
     #query {
-        width: 500px;
+
+        width: 100%;
+        max-width: 550px;
+
         height: 42px;
+
+        padding: 0 18px;
+
         background: #121212;
-        border: 1px solid #303030;
-        border-radius: 25px 0 0 25px;
+
         color: white;
-        padding: 0 20px;
-        font-size: 16px;
+
+        border: 1px solid #303030;
+
+        border-radius: 22px 0 0 22px;
+
+        outline: none;
+
+        font-size: 15px;
     }
 
     #query:focus {
-        outline: none;
+
         border-color: #3ea6ff;
     }
 
     #search {
+
+        margin-left: -10px;
         width: 65px;
+
         height: 42px;
-        border: none;
+
         background: #222;
+
         color: white;
-        border-radius: 0 25px 25px 0;
+
+        border: 1px solid #303030;
+
+        border-left: none;
+
+        border-radius: 0 22px 22px 0;
+
         cursor: pointer;
+
+        transition: .25s;
     }
 
     #search:hover {
-        background: #333;
+
+        background: #323232;
     }
 
     #sortname {
@@ -95,6 +158,219 @@
         cursor: pointer;
     }
 
+    .logo {
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        z-index: 999;
+        flex-shrink: 0;
+    }
+
+    .logo h1 {
+
+        color: white;
+
+        font-size: 28px;
+
+        margin: 0;
+
+        font-weight: 600;
+    }
+
+    /* ---------- User SIGNIN ---------- */
+
+
+    #userSection {
+
+        flex-shrink: 0;
+    }
+
+    #loginBtn {
+
+        padding: 10px 20px;
+
+        border: 1px solid #3ea6ff;
+
+        background: transparent;
+
+        color: #3ea6ff;
+
+        border-radius: 25px;
+
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition: .3s;
+    }
+
+    #loginBtn:hover {
+
+        background: #263850;
+    }
+
+    #popup {
+
+        position: fixed;
+        inset: 0;
+
+        display: none;
+
+        justify-content: center;
+        align-items: center;
+
+        background: rgba(0, 0, 0, .75);
+
+        backdrop-filter: blur(6px);
+
+        z-index: 9999;
+    }
+
+    #popupContent {
+
+        width: 380px;
+
+        background: #181818;
+
+        border: 1px solid #333;
+
+        border-radius: 20px;
+
+        padding: 35px;
+
+        box-shadow: 0 15px 40px rgba(0, 0, 0, .5);
+
+        animation: popup .35s ease;
+    }
+
+
+    #popupContent h2 {
+
+        text-align: center;
+
+        margin-bottom: 25px;
+
+        font-size: 28px;
+    }
+
+    #popupContent input {
+
+        width: 100%;
+
+        margin: 10px 0;
+
+        padding: 14px 18px;
+
+        border: none;
+
+        border-radius: 12px;
+
+        background: #2a2a2a;
+
+        color: white;
+
+        font-size: 15px;
+    }
+
+    #popupContent input:focus {
+
+        outline: 2px solid #ff0000;
+    }
+
+    #signupBtn {
+
+        width: 100%;
+
+        margin-top: 20px;
+
+        padding: 14px;
+
+        background: #ff0000;
+
+        color: white;
+
+        border: none;
+
+        border-radius: 12px;
+
+        cursor: pointer;
+
+        font-size: 16px;
+
+        font-weight: bold;
+
+        transition: .3s;
+    }
+
+    #signupBtn:hover {
+
+        background: #d60000;
+    }
+
+    #closeBtn {
+
+        position: absolute;
+
+        top: 18px;
+
+        right: 20px;
+
+        background: none;
+
+        border: none;
+
+        color: white;
+
+        font-size: 22px;
+
+        cursor: pointer;
+    }
+
+    /*-------------USER NAME------------*/
+
+    #profile {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        cursor: pointer;
+    }
+
+    #avatar {
+
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 50%;
+
+        background: #ff0000;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        font-size: 18px;
+
+        font-weight: bold;
+
+        color: white;
+    }
+
+    #profile span {
+
+        font-size: 15px;
+
+        font-weight: 500;
+    }
+
     body {
         margin: 0;
         background: #0f0f0f;
@@ -102,12 +378,6 @@
         overflow: hidden;
     }
 
-    /* #container {
-        display: flex;
-        gap: 30px;
-        padding: 25px;
-        border: 2px solid red;
-    } */
 
     #main {
         flex: 3;
@@ -115,6 +385,12 @@
 
     #remain {
         flex: 1;
+    }
+
+    #main,
+    #remain {
+        height: calc(100vh - 90px);
+        overflow-y: auto;
     }
 
     iframe {
@@ -205,7 +481,6 @@
         display: grid;
         grid-template-columns: 2.5fr 1fr;
         gap: 25px;
-
         height: calc(100vh - 70px);
         margin-top: 70px;
         padding: 20px;
@@ -230,10 +505,11 @@
     }
 
     /* RIGHT */
-    #remain {
+    /* #remain {
         overflow-y: auto;
         padding-right: 8px;
-    }
+
+    } */
 
     /* one suggested video */
 
@@ -424,16 +700,366 @@
 
         color: white !important;
     }
+
+    .description {
+
+        background: #272727;
+
+        padding: 18px;
+
+        border-radius: 15px;
+
+        margin: 18px 0;
+    }
+
+    #descText {
+
+        max-height: 90px;
+
+        overflow: hidden;
+
+        transition: .3s;
+    }
+
+    .show {
+
+        max-height: 1000px !important;
+    }
+
+    #showMore {
+
+        margin-top: 12px;
+
+        color: #3ea6ff;
+
+        cursor: pointer;
+
+        font-weight: bold;
+    }
+
+    #loginBtn svg {
+        display: none;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media(max-width:1200px) {
+        .videoCard {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    @media(max-width:900px) {
+
+        #query {
+            width: 220px;
+        }
+
+
+        #sideMenu {
+
+            width: 70px;
+            padding: 10px 6px;
+            overflow-x: hidden;
+        }
+
+        #sideMenu h1 {
+            font-size: 12px;
+            text-align: center;
+            padding: 18px 5px;
+        }
+
+        #searchresults {
+            margin-left: 90px;
+        }
+
+        #sortname,
+        #sort {
+            display: none;
+        }
+
+        .menuItem {
+
+            justify-content: center;
+            padding: 14px 0;
+            gap: 0;
+        }
+
+        .menuItem span {
+
+            display: none;
+        }
+
+        .menuItem svg {
+
+            width: 24px;
+            height: 24px;
+        }
+
+        .logout {
+
+            justify-content: center;
+        }
+
+        .divider {
+
+            width: 100%;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #main {
+            width: 100%;
+        }
+
+        #remain {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .videoCard {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .videoCard img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .videoInfo {
+            padding: 0 5px;
+        }
+
+        .videoInfo h4 {
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .videoInfo p {
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        html,
+        body {
+            height: auto;
+            overflow-y: auto;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            overflow: visible;
+        }
+
+        #main,
+        #remain {
+            height: auto;
+            overflow: visible;
+        }
+
+
+    }
+
+    /* Tablets & Small Laptops */
+    @media (max-width:750px) {
+
+        /* Hide only YouTube text */
+        .logo h1 {
+            display: none;
+        }
+
+        /* Make logo smaller */
+        .logo svg {
+            width: 32px;
+            height: 24px;
+        }
+
+        /* Reduce navbar padding */
+        #navbar {
+            padding: 0 12px;
+        }
+
+        /* Search section takes remaining space */
+        .searchContainer {
+            flex: 1;
+            margin: 0 15px;
+        }
+
+        /* Responsive search bar */
+        #query {
+            width: 100%;
+            max-width: 350px;
+            font-size: 14px;
+        }
+
+        /* Smaller search button */
+        #search {
+            width: 50px;
+        }
+
+        /* Smaller login button */
+        #loginBtn {
+            padding: 8px 14px;
+            font-size: 13px;
+        }
+
+        /* Smaller profile (after login) */
+        #profile span {
+            font-size: 13px;
+        }
+
+        #avatar {
+            width: 36px;
+            height: 36px;
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width:600px) {
+
+        #main iframe {
+            height: 250px;
+        }
+
+    }
+
+    @media (max-width:400px) {
+
+        /* Hide YouTube text */
+        .logo {
+            display: none;
+        }
+
+        /* Hide Welcome text */
+        .welcomeText {
+            display: none;
+        }
+
+        /* Hide Sign In button */
+        #loginBtn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #loginBtn svg {
+            display: block;
+        }
+
+        /* Show only avatar */
+        #avatar {
+
+            width: 38px;
+            height: 38px;
+
+            font-size: 16px;
+        }
+
+        /* Keep profile centered */
+        #profile {
+            gap: 0;
+        }
+
+        /* Search occupies maximum space */
+        .searchContainer {
+            margin: 0 10px;
+        }
+
+        #query {
+            width: 100%;
+        }
+
+        #guestProfile {
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        #guestProfile:hover {
+
+            background: #272727;
+        }
+
+        .loginIcon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loginText {
+            display: none;
+        }
+
+    }
 </style>
 
 <body>
     <div id="navbar">
-        <h1>youtube</h1>
-        <div>
-            <input type="text" id="query" placeholder="Search here">
-            <button id="search" onclick="getdata()"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input type="text" id="sortname" placeholder="sort by channal ID">
-            <button id="sort" onclick="sort()">Go</button>
+        <div class="logo" onclick="goHome()">
+            <svg width="38" height="27" viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg">
+                <rect width="90" height="60" rx="14" fill="#FF0000" />
+                <polygon points="36,18 36,42 58,30" fill="white" />
+            </svg>
+
+            <h1>YouTube</h1>
+        </div>
+
+        <div class="searchContainer" onclick="window.location='index.html'">
+            <input type="text" id="query" placeholder="Search here...">
+            <button id="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <div id="userSection">
+            <button id="loginBtn">Sign In / Sign Up</button>
+        </div>
+
+
+    </div>
+
+    <div id="popup">
+
+        <div id="popupContent">
+
+            <h2>Create Account</h2>
+
+            <form id="signupForm">
+                <input type="text" id="username" placeholder="Enter Name" required>
+                <input type="password" id="password" placeholder="Enter Password" required>
+                <button id="signupBtn">
+                    Sign Up
+                </button>
+            </form>
+
+            <button id="closeBtn">
+                ✖
+            </button>
+
         </div>
 
     </div>
@@ -444,7 +1070,7 @@
 </body>
 <script>
 
-    const video = JSON.parse(localStorage.getItem("clicked vdo"));
+    let video = JSON.parse(localStorage.getItem("clicked vdo"));
     const allVideos = JSON.parse(localStorage.getItem("all vdo")) || [];
 
     const main = document.getElementById("main");
@@ -457,10 +1083,22 @@
         main.innerHTML = `
 
     <iframe
-    src="https://www.youtube.com/embed/${video.id}"
+    src="https://www.youtube.com/embed/${video.id.videoId}"
     allowfullscreen></iframe>
 
-    <h2>${video.snippet}</h2>
+    <h2>${video.snippet.title}</h2>
+
+    <div class="description">
+
+    <div id="descText">
+
+        ${video.snippet.description}
+
+    </div>
+
+    <p id="showMore">Show more</p>
+
+</div>
 
    <div class="actions">
 
@@ -486,11 +1124,11 @@
 
     <div class="channelLeft">
         <div class="avatar">
-            ${video.title.charAt(0)}
+            ${video.snippet.title.charAt(0)}
         </div>
 
         <div>
-            <h3>${video.title}</h3>
+            <h3>${video.snippet.channelTitle}</h3>
             <p>1.2M Subscribers</p>
         </div>
     </div>
@@ -524,16 +1162,36 @@
     }
 
 
+
+
     function showSidebar() {
 
         remain.innerHTML = "";
 
+        let x = JSON.parse(localStorage.getItem("all vdo"))
+
         allVideos.forEach((el) => {
 
             // Don't show the currently playing video
-            if (el.id.videoId === video.id) return;
+            if (el.id.videoId === video.id.videoId) return;
 
             let card = document.createElement("div");
+            card.onclick = () => {
+
+
+                // Save the selected video
+                localStorage.setItem("clicked vdo", JSON.stringify(el));
+
+
+
+                // Refresh UI
+                display(video);
+                loadComments(video);
+                likeSystem(video);
+                subscribeSystem(video);
+                showSidebar();
+                location.reload();
+            };
             card.className = "videoCard";
 
             card.innerHTML = `
@@ -548,19 +1206,6 @@
             </div>
         `;
 
-            card.onclick = () => {
-
-                localStorage.setItem(
-                    "clicked vdo",
-                    JSON.stringify({
-                        id: el.id.videoId,
-                        snippet: el.snippet
-                    })
-                );
-
-                location.reload();
-            };
-
             remain.append(card);
         });
 
@@ -572,13 +1217,13 @@
         if (input.value.trim() == "") return;
 
         let comments =
-            JSON.parse(localStorage.getItem(video.id + "comments"))
+            JSON.parse(localStorage.getItem(video.id.videoId + "comments"))
             || [];
 
         comments.push(input.value);
 
         localStorage.setItem(
-            video.id + "comments",
+            video.id.videoId + "comments",
             JSON.stringify(comments)
         );
 
@@ -594,7 +1239,7 @@
         list.innerHTML = "";
 
         let comments =
-            JSON.parse(localStorage.getItem(video.id + "comments"))
+            JSON.parse(localStorage.getItem(video.id.videoId + "comments"))
             || [];
 
         comments.reverse().forEach(comment => {
@@ -625,7 +1270,7 @@
         const dislike = document.getElementById("dislikeBtn");
 
         let state =
-            JSON.parse(localStorage.getItem(video.id + "like"))
+            JSON.parse(localStorage.getItem(video.id.videoId + "like"))
             || "";
 
         if (state == "like")
@@ -643,13 +1288,13 @@
             if (like.classList.contains("active")) {
 
                 localStorage.setItem(
-                    video.id + "like",
+                    video.id.videoId + "like",
                     JSON.stringify("like")
                 );
 
             } else {
 
-                localStorage.removeItem(video.id + "like");
+                localStorage.removeItem(video.id.videoId + "like");
 
             }
 
@@ -664,114 +1309,185 @@
             if (dislike.classList.contains("active")) {
 
                 localStorage.setItem(
-                    video.id + "like",
+                    video.id.videoId + "like",
                     JSON.stringify("dislike")
                 );
 
             } else {
 
-                localStorage.removeItem(video.id + "like");
+                localStorage.removeItem(video.id.videoId + "like");
 
             }
 
         }
 
     }
-    // function subscribeSystem() {
-
-    //     const btn = document.getElementById("subscribeBtn");
-
-    //     const key = "subscribe-" + video.title;
-
-
-    //     let subscribed =
-    //         JSON.parse(localStorage.getItem(key));
-
-    //     if (subscribed) {
-
-    //         btn.innerText = "✓ Subscribed";
-
-    //         btn.classList.add("subscribed");
-
-    //     }
-
-    //     btn.onclick = function () {
-
-    //         subscribed = !subscribed;
-    //         console.log(key)
-
-    //         localStorage.setItem(key, JSON.stringify(subscribed));
-
-    //         if (subscribed) {
-
-    //             btn.innerText = "✓ Subscribed";
-
-    //             btn.classList.add("subscribed");
-
-    //         }
-    //         else {
-
-    //             btn.innerText = "Subscribe";
-
-    //             btn.classList.remove("subscribed");
-
-    //         }
-
-    //     }
-
-    // }
 
     showSidebar();
-
     display(video);
 
+
     function subscribeSystem() {
+        console.log("clicked")
 
         const btn = document.getElementById("subscribeBtn");
 
-        if (!btn) return; // Button not found
+        if (!btn) return;
 
-        const key = "subscribe_" + video.title;
+        const key = "subscribe_" + video.id.videoId;
 
         let subscribed = JSON.parse(localStorage.getItem(key)) || false;
 
         updateButton();
 
-        btn.onclick = function () {
-            console.log("subs", key)
+        btn.addEventListener("click", () => {
 
             subscribed = !subscribed;
 
             localStorage.setItem(key, JSON.stringify(subscribed));
 
             updateButton();
-        }
+
+        });
 
         function updateButton() {
 
-            if (subscribed) {
+            btn.textContent = subscribed ? "Unsubscribe" : "Subscribe";
 
-                btn.innerText = "✓ Subscribed";
-                btn.style.background = "#272727";
-                btn.style.color = "white";
+            btn.style.background = subscribed ? "#272727" : "#dc143c";
 
-            } else {
-
-                btn.innerText = "Subscribe";
-                btn.style.background = "red";
-                btn.style.color = "white";
-
-            }
-
+            btn.style.color = "#fff";
         }
-
     }
+
+
+
+    const show = document.getElementById("showMore");
+    const desc = document.getElementById("descText");
+
+    show.onclick = () => {
+
+        desc.classList.toggle("show");
+
+        show.innerText =
+            desc.classList.contains("show")
+                ? "Show less"
+                : "Show more";
+    };
+
     likeSystem();
     loadComments();
+    subscribeSystem()
 
     document
         .getElementById("commentBtn")
         .addEventListener("click", addComment);
+
+
+
+
+
+
+
+
+    const popup = document.getElementById("popup");
+    const loginBtn = document.getElementById("loginBtn");
+
+    loginBtn.onclick = () => {
+        console.log("khulnja")
+
+        popup.style.display = "flex";
+
+    }
+
+    closeBtn.onclick = () => {
+
+        popup.style.display = "none";
+
+    }
+
+    signupBtn.onclick = function () {
+        console.log('signin clicked')
+
+
+        document.getElementById("signupForm").onsubmit = function (e) {
+
+            e.preventDefault();
+
+            const passwordInput = document.getElementById("password");
+            const usernameInput = document.getElementById("username");
+
+            const name = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            localStorage.setItem("username", name);
+
+            popup.style.display = "none";
+
+            showUser();
+
+        }
+
+    }
+    function showUser() {
+
+        const user = localStorage.getItem("username");
+
+        if (user) {
+
+            const first = user.charAt(0).toUpperCase();
+
+            userSection.innerHTML = `
+            <div id="profile">
+                <div id="avatar">${first}</div>
+                <span class="welcomeText">Welcome ${user}</span>
+            </div>
+        `;
+
+        } else {
+
+            userSection.innerHTML = `
+            <button id="loginBtn">
+
+                <span class="loginIcon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="3"
+                            stroke="#3ea6ff"
+                            stroke-width="2"/>
+
+                        <path
+                            d="M5 20C5 16.5 8 14.5 12 14.5C16 14.5 19 16.5 19 20"
+                            stroke="#3ea6ff"
+                            stroke-width="2"
+                            stroke-linecap="round"/>
+                    </svg>
+                </span>
+
+                <span class="loginText">
+                    Sign In / Sign Up
+                </span>
+
+            </button>
+        `;
+
+            document.getElementById("loginBtn").onclick = () => {
+                popup.style.display = "flex";
+            };
+        }
+
+    }
+
+
+    const logoutSection = document.getElementById("logoutSection");
+    const user = localStorage.getItem("username");
+
+    let goHome = () => {
+        window.location = 'index.html'
+    }
+
+
+
+    showUser();
 
 
 </script>
