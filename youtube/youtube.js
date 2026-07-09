@@ -222,18 +222,23 @@ function updateSidebarUser() {
             </div>
         `;
 
+        const logoutModal = document.getElementById("logoutModal");
+
         document.getElementById("sidebarAction").onclick = () => {
+            logoutModal.classList.add("show");
+        };
 
-            if (confirm("Logout?")) {
+        document.getElementById("cancelLogout").onclick = () => {
+            logoutModal.classList.remove("show");
+        };
 
-                localStorage.removeItem("username");
+        document.getElementById("confirmLogout").onclick = () => {
+            localStorage.removeItem("username");
 
-                showUser();
-                updateSidebarUser();
+            showUser();
+            updateSidebarUser();
 
-                location.reload();
-            }
-
+            location.reload();
         };
 
     } else {
