@@ -6,8 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://kit.fontawesome.com/60726fbdb6.js" crossorigin="anonymous"></script>
 </head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Cabin:wght@400;600&family=Open+Sans&family=Roboto:wght@300;400&display=swap"
+    rel="stylesheet">
+<script src="https://kit.fontawesome.com/60726fbdb6.js" crossorigin="anonymous"></script>
 <style>
     * {
         margin: 0;
@@ -18,28 +23,19 @@
 
     /* ---------- NAVBAR ---------- */
 
-
     #navbar {
-
         position: fixed;
         top: 0;
         left: 0;
-
         width: 100%;
         height: 70px;
-
         background: #0f0f0f;
-
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         padding: 0 25px;
-
         box-sizing: border-box;
-
         z-index: 1000;
-
         border-bottom: 1px solid #2a2a2a;
     }
 
@@ -63,15 +59,10 @@
     }
 
     .searchContainer {
-
         flex: 1;
-
         display: flex;
-
         justify-content: center;
-
         align-items: center;
-
         margin: 0 40px;
     }
 
@@ -84,56 +75,36 @@
     }
 
     #query {
-
         width: 100%;
         max-width: 550px;
-
         height: 42px;
-
         padding: 0 18px;
-
         background: #121212;
-
         color: white;
-
         border: 1px solid #303030;
-
         border-radius: 22px 0 0 22px;
-
         outline: none;
-
         font-size: 15px;
     }
 
     #query:focus {
-
         border-color: #3ea6ff;
     }
 
     #search {
-
         margin-left: -10px;
         width: 65px;
-
         height: 42px;
-
         background: #222;
-
         color: white;
-
         border: 1px solid #303030;
-
         border-left: none;
-
         border-radius: 0 22px 22px 0;
-
         cursor: pointer;
-
         transition: .25s;
     }
 
     #search:hover {
-
         background: #323232;
     }
 
@@ -169,13 +140,9 @@
     }
 
     .logo h1 {
-
         color: white;
-
         font-size: 28px;
-
         margin: 0;
-
         font-weight: 600;
     }
 
@@ -183,191 +150,120 @@
 
 
     #userSection {
-
         flex-shrink: 0;
     }
 
     #loginBtn {
-
         padding: 10px 20px;
-
         border: 1px solid #3ea6ff;
-
         background: transparent;
-
         color: #3ea6ff;
-
         border-radius: 25px;
-
         font-weight: 600;
-
         cursor: pointer;
-
         transition: .3s;
     }
 
     #loginBtn:hover {
-
         background: #263850;
     }
 
     #popup {
-
         position: fixed;
         inset: 0;
-
         display: none;
-
         justify-content: center;
         align-items: center;
-
         background: rgba(0, 0, 0, .75);
-
         backdrop-filter: blur(6px);
-
         z-index: 9999;
     }
 
     #popupContent {
-
         width: 380px;
-
         background: #181818;
-
         border: 1px solid #333;
-
         border-radius: 20px;
-
         padding: 35px;
-
         box-shadow: 0 15px 40px rgba(0, 0, 0, .5);
-
         animation: popup .35s ease;
     }
 
 
     #popupContent h2 {
-
         text-align: center;
-
         margin-bottom: 25px;
-
         font-size: 28px;
     }
 
     #popupContent input {
-
         width: 100%;
-
         margin: 10px 0;
-
         padding: 14px 18px;
-
         border: none;
-
         border-radius: 12px;
-
         background: #2a2a2a;
-
         color: white;
-
         font-size: 15px;
     }
 
     #popupContent input:focus {
-
         outline: 2px solid #ff0000;
     }
 
     #signupBtn {
-
         width: 100%;
-
         margin-top: 20px;
-
         padding: 14px;
-
         background: #ff0000;
-
         color: white;
-
         border: none;
-
         border-radius: 12px;
-
         cursor: pointer;
-
         font-size: 16px;
-
         font-weight: bold;
-
         transition: .3s;
     }
 
     #signupBtn:hover {
-
         background: #d60000;
     }
 
     #closeBtn {
-
         position: absolute;
-
         top: 18px;
-
         right: 20px;
-
         background: none;
-
         border: none;
-
         color: white;
-
         font-size: 22px;
-
         cursor: pointer;
     }
 
     /*-------------USER NAME------------*/
 
     #profile {
-
         display: flex;
-
         align-items: center;
-
         gap: 12px;
-
         cursor: pointer;
     }
 
     #avatar {
-
         width: 42px;
-
         height: 42px;
-
         border-radius: 50%;
-
         background: #ff0000;
-
         display: flex;
-
         justify-content: center;
-
         align-items: center;
-
         font-size: 18px;
-
         font-weight: bold;
-
         color: white;
     }
 
     #profile span {
-
         font-size: 15px;
-
         font-weight: 500;
     }
 
@@ -375,29 +271,23 @@
         margin: 0;
         background: #0f0f0f;
         color: white;
-        overflow: hidden;
+        overflow-y: auto;
+        height: auto;
     }
 
 
     #main {
         flex: 3;
+        height: calc(100vh - 90px);
+        overflow-y: auto;
+        padding-right: 10px;
     }
 
     #remain {
         flex: 1;
-    }
-
-    #main,
-    #remain {
         height: calc(100vh - 90px);
         overflow-y: auto;
-    }
-
-    iframe {
-        width: 100%;
-        height: 550px;
-        border: none;
-        border-radius: 15px;
+        padding-right: 8px;
     }
 
     h2 {
@@ -470,46 +360,23 @@
         font-size: 13px;
     }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Roboto, sans-serif;
-    }
-
     #container {
         display: grid;
         grid-template-columns: 2.5fr 1fr;
         gap: 25px;
-        height: calc(100vh - 70px);
+        height: auto;
         margin-top: 70px;
         padding: 20px;
     }
 
-
     /* LEFT */
-    #main {
-        overflow-y: auto;
-        padding-right: 10px;
-    }
-
-    #main iframe {
-        width: 100%;
-        height: 550px;
-        border: none;
-        border-radius: 15px;
-    }
 
     #main h2 {
         margin: 18px 0;
     }
 
-    /* RIGHT */
-    /* #remain {
-        overflow-y: auto;
-        padding-right: 8px;
 
-    } */
+    /* RIGHT */
 
     /* one suggested video */
 
@@ -579,53 +446,34 @@
     }
 
     .commentBox input {
-
         flex: 1;
         padding: 12px;
-
         border: none;
-
         border-radius: 25px;
-
         background: #272727;
-
         color: white;
-
         font-size: 15px;
     }
 
     .commentBox button {
-
         padding: 12px 25px;
-
         border: none;
-
         border-radius: 25px;
-
         background: #3ea6ff;
-
         color: white;
-
         cursor: pointer;
     }
 
     .comment {
-
         background: #222;
-
         padding: 15px;
-
         border-radius: 10px;
-
         margin: 12px 0;
-
         font-size: 15px;
     }
 
     .active {
-
         background: #3ea6ff !important;
-
         color: white;
     }
 
@@ -633,13 +481,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         background: #1d1d1d;
-
         padding: 20px;
-
         border-radius: 15px;
-
         margin: 25px 0;
     }
 
@@ -652,88 +496,57 @@
     .avatar {
         width: 55px;
         height: 55px;
-
         border-radius: 50%;
-
         background: #ff3d00;
-
         display: flex;
-
         justify-content: center;
-
         align-items: center;
-
         font-size: 22px;
-
         font-weight: bold;
     }
 
     #subscribeBtn {
-
         background: #ffffff;
-
         color: #000;
-
         border: none;
-
         padding: 12px 28px;
-
         border-radius: 25px;
-
         cursor: pointer;
-
         font-weight: bold;
-
         font-size: 15px;
-
         transition: .3s;
     }
 
     #subscribeBtn:hover {
-
         background: #ddd;
     }
 
     .subscribed {
-
         background: #272727 !important;
-
         color: white !important;
     }
 
     .description {
-
         background: #272727;
-
         padding: 18px;
-
         border-radius: 15px;
-
         margin: 18px 0;
     }
 
     #descText {
-
         max-height: 90px;
-
         overflow: hidden;
-
         transition: .3s;
     }
 
     .show {
-
         max-height: 1000px !important;
     }
 
     #showMore {
-
         margin-top: 12px;
-
         color: #3ea6ff;
-
         cursor: pointer;
-
         font-weight: bold;
     }
 
@@ -758,7 +571,6 @@
 
 
         #sideMenu {
-
             width: 70px;
             padding: 10px 6px;
             overflow-x: hidden;
@@ -780,30 +592,25 @@
         }
 
         .menuItem {
-
             justify-content: center;
             padding: 14px 0;
             gap: 0;
         }
 
         .menuItem span {
-
             display: none;
         }
 
         .menuItem svg {
-
             width: 24px;
             height: 24px;
         }
 
         .logout {
-
             justify-content: center;
         }
 
         .divider {
-
             width: 100%;
         }
 
@@ -848,8 +655,7 @@
             color: #aaa;
         }
 
-        html,
-        body {
+        html {
             height: auto;
             overflow-y: auto;
         }
@@ -927,9 +733,9 @@
 
     @media (max-width:600px) {
 
-        #main iframe {
+        /* #main iframe {
             height: 250px;
-        }
+        } */
 
     }
 
@@ -962,11 +768,13 @@
 
         /* Show only avatar */
         #avatar {
-
             width: 38px;
             height: 38px;
-
             font-size: 16px;
+        }
+
+        .avatar {
+            display: none;
         }
 
         /* Keep profile centered */
@@ -984,18 +792,13 @@
         }
 
         #guestProfile {
-
             width: 40px;
             height: 40px;
-
             border-radius: 50%;
-
             display: flex;
             justify-content: center;
             align-items: center;
-
             cursor: pointer;
-
             transition: .3s;
         }
 
@@ -1012,6 +815,10 @@
 
         .loginText {
             display: none;
+        }
+
+        .actions {
+            gap: 5px;
         }
 
     }
@@ -1067,8 +874,37 @@
         <div id="main"></div>
         <div id="remain"></div>
     </div>
+
 </body>
 <script>
+
+    // let arr = JSON.parse(localStorage.getItem('clicked vdo')) || [];
+
+
+    // let main = document.getElementById('main');
+
+    // function display(arr) {
+
+    //     const vdoplay = document.createElement("iframe");
+
+    //     console.log(`https://www.youtube.com/embed?v=${arr.id.videoId}`);
+    //     vdoplay.width = "60%";
+    //     vdoplay.height = "500px";
+    //     vdoplay.allow = "autoplay";
+    //     vdoplay.src = `https://www.youtube.com/embed/${arr.id.videoId}`;
+
+
+
+    //     let div2 = document.createElement("h1")
+    //     div2.innerText = arr.snippet;
+
+    //     main.append(vdoplay, div2);
+
+    // }
+    // display(arr);
+
+
+
 
     let video = JSON.parse(localStorage.getItem("clicked vdo"));
     const allVideos = JSON.parse(localStorage.getItem("all vdo")) || [];
@@ -1082,9 +918,17 @@
 
         main.innerHTML = `
 
-    <iframe
-    src="https://www.youtube.com/embed/${video.id.videoId}"
-    allowfullscreen></iframe>
+<iframe
+    width="100%"
+    height="500"
+    src="https://www.youtube.com/embed/${video.id.videoId}?rel=0&playsinline=1"
+    title="${video.snippet.title}"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+</iframe>
+
 
     <h2>${video.snippet.title}</h2>
 
@@ -1159,6 +1003,17 @@
 </div>
 
     `;
+
+        const r = document.querySelector("iframe").getBoundingClientRect();
+        console.log("r", document.elementFromPoint(r.left + 20, r.top + 20));
+
+        const iframe = document.querySelector("iframe");
+
+        iframe.addEventListener("click", () => {
+            console.log("Iframe clicked");
+            console.log(video);
+            console.log(iframe.src);
+        });
     }
 
 
@@ -1394,7 +1249,6 @@
     const loginBtn = document.getElementById("loginBtn");
 
     loginBtn.onclick = () => {
-        console.log("khulnja")
 
         popup.style.display = "flex";
 
@@ -1488,6 +1342,7 @@
 
 
     showUser();
+
 
 
 </script>
